@@ -1,0 +1,67 @@
+#pix_section_intro {
+    position: relative;
+    background: url("https://i.postimg.cc/fT70j6fp/b2Nlci0x-Lmpw-Zw.jpg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+#pix_section_intro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 0;
+}
+
+#pix_section_intro > * {
+    position: relative;
+    z-index: 1;
+}
+
+html, body, .site, .wp-site-blocks {
+    background: url("https://i.postimg.cc/fT70j6fp/b2Nlci0x-Lmpw-Zw.jpg") !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+
+
+/* Navbar fijo a 100px */
+.navbar {
+    height: 100px;
+    display: flex;
+    align-items: center; /* CENTRA verticalmente todo lo que está adentro */
+    overflow: visible;
+}
+
+/* Contenedor del logo */
+.navbar-brand {
+    display: flex;
+    align-items: center; /* centra verticalmente el logo */
+}
+
+/* Tamaño del logo */
+.pix-logo {
+    height: 100px !important;  /* Cambiá a tu gusto: 130, 150, 160… */
+    width: auto !important;
+}
+
+#titulo-verde {
+    color: #3BA935 !important;
+}
+
+.slider {
+    height: 150px;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin: -100px 0 10px 0; /* SUBE el slider */
+}
+
+
+
+
+
