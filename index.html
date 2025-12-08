@@ -101,6 +101,7 @@ form.cart button.single_add_to_cart_button, .ppc-button-wrapper, .wc-ppcp-paylat
 		}
 </style>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <link rel='stylesheet' id='pix-flickity-style-css' href='https://www.agrouplp.com.ar/wp-content/themes/agroup/css/build/flickity.min.css?ver=2.1.7' type='text/css' media='all' />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <link rel='stylesheet' id='essentials-pixicon-font-css' href='https://www.agrouplp.com.ar/wp-content/themes/agroup/css/build/pixicon-main/style.min.css?ver=2.1.7' type='text/css' media='all' />
@@ -258,15 +259,59 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
     </div>
 </div>
 
+<style>
+/* PANEL LATERAL */
+.mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+    padding: 40px 25px;
+    transition: right 0.35s ease;
+    z-index: 99999;
+}
+
+/* PANEL ABIERTO */
+.mobile-menu-panel.open {
+    right: 0;
+}
+
+/* Enlaces del menú */
+.mobile-menu-panel .nav-link {
+    font-size: 18px;
+    padding: 12px 0;
+    display: block;
+}
+
+/* Overlay oscuro detrás del menú */
+.menu-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.45);
+    display: none;
+    z-index: 99998;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+</style>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
 <div class="pix-header-border bg-gray-2" style="width:100%;height:1px;"></div>
 
 <!-- TOPBAR MÓVIL -->
 <div class="pix-topbar pix-header-mobile pix-topbar-normal bg-white p-sticky py-22">
     <div class="container">
         <div class="row">
-            <div class="col-12 column d-flex justify-content-between py-md-02 pix-py-10">
+            <div class="col-12 d-flex justify-content-between">
 
-                <!-- REDES MOVIL -->
+                <!-- REDES -->
                 <div class="pix-px-5 d-inline-flex align-items-center pix-social text-18">
                     <a class="d-flex align-items-center text-black px-2" target="_blank" href="https://www.instagram.com/cslapampa">
                         <i class="bi bi-instagram"></i>
@@ -275,55 +320,87 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
                         <i class="bi bi-whatsapp"></i>
                     </a>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 
 <div class="pix-mobile-header-sticky w-100"></div>
-                
-    <header id="mobile_head" class="pix-header pix-header-mobile d-inline-block pix-header-normal pix-scroll-shadow sticky-top header-scroll2 bg-white" style="">
-         <div class="container">
-             <nav class="navbar navbar-hover-drop navbar-expand-lg2 navbar-light d-inline-block2 ">
-    				    <div class="slide-in-container d-flex align-items-center">
-        <div class="d-inline-block animate-in slide-in-container" data-anim-type="slide-in-up" style="">
-                                    <a class="navbar-brand" href="index.html" target="" rel="home">
-                            <img class="pix-logo" height="90" width="" src="https://i.postimg.cc/k41WLbz2/Diseño_sin_título.png" alt="CS" style="height:90px;width:auto;" >
-                                                    </a>
-                                </div>
-    </div>
-                <button class="navbar-toggler hamburger--spin hamburger small-menu-toggle" type="button" data-toggle="collapse" data-target="#navbarNav-849" aria-controls="navbarNav-849" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="hamburger-box">
 
+<header id="mobile_head" class="pix-header pix-header-mobile sticky-top bg-white">
+    <div class="container">
+        <nav class="navbar navbar-hover-drop navbar-expand-lg2 navbar-light">
+
+            <!-- LOGO -->
+            <a class="navbar-brand" href="index.html">
+                <img class="pix-logo" height="90" src="https://i.postimg.cc/k41WLbz2/Diseño_sin_título.png" alt="CS" style="height:90px;width:auto;">
+            </a>
+
+            <!-- BOTÓN HAMBURGUESA SIN COLLAPSE -->
+            <button class="navbar-toggler hamburger--spin hamburger small-menu-toggle" 
+                    type="button" id="openMobileMenu">
+                <span class="hamburger-box">
                     <span class="hamburger-inner bg-heading-default">
                         <span class="hamburger-inner-before bg-heading-default"></span>
                         <span class="hamburger-inner-after bg-heading-default"></span>
                     </span>
-
                 </span>
             </button>
-            <div id="navbarNav-849" class="collapse navbar-collapse align-self-stretch   "><ul id="menu-onepage-menu-1" class="navbar-nav nav-style-megamenu align-self-stretch align-items-center "><li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3345 nav-item dropdown d-lg-flex nav-item-display align-self-stretch overflow-visible align-items-center"><a title="Home" class="text-heading-default font-weight-bold secondary-font pix-nav-link  nav-link animate-in" target="_self" href="#pix_section_intro" data-anim-type="fade-in"><span class="pix-dropdown-title text-sm  pix-header-text">Home</span></a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3346 nav-item dropdown d-lg-flex nav-item-display align-self-stretch overflow-visible align-items-center"><a title="Nosotros" class="text-heading-default font-weight-bold secondary-font pix-nav-link  nav-link animate-in" target="_self" href="#pix_section_empresa" data-anim-type="fade-in"><span class="pix-dropdown-title text-sm  pix-header-text">Nosotros</span></a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3433 nav-item dropdown d-lg-flex nav-item-display align-self-stretch overflow-visible align-items-center"><a title="Servicios" class="text-heading-default font-weight-bold secondary-font pix-nav-link  nav-link animate-in" target="_self" href="#pix_section_servicios" data-anim-type="fade-in"><span class="pix-dropdown-title text-sm  pix-header-text">Servicios</span></a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3432 nav-item dropdown d-lg-flex nav-item-display align-self-stretch overflow-visible align-items-center"><a title="Productos" class="text-heading-default font-weight-bold secondary-font pix-nav-link  nav-link animate-in" target="_self" href="#pix_section_productos" data-anim-type="fade-in"><span class="pix-dropdown-title text-sm  pix-header-text">Productos</span></a></li>
-<li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3435 nav-item dropdown d-lg-flex nav-item-display align-self-stretch overflow-visible align-items-center"><a title="Contacto" class="text-heading-default font-weight-bold secondary-font pix-nav-link  nav-link animate-in" target="_self" href="#pix_section_contacto" data-anim-type="fade-in"><span class="pix-dropdown-title text-sm  pix-header-text">Contacto</span></a></li>
-</ul></div>             </nav>
-                      </div>
-                      <div class="pix-header-border bg-gray-2" style="width:100%;height:1px;"></div>
-              </header>
-    <div id="content" class="site-content bg-gray-1 " style="" >
-    <div class="container-fluid px-0 mx-0">
-        <div class="row">
 
-            <div class="col-12">
-                <div id="primary" class="content-area">
-                    <main id="main" class="site-main">
+        </nav>
+    </div>
 
-                        
-<article id="post-3431" class="post-3431 page type-page status-publish hentry">
+    <div class="pix-header-border bg-gray-2" style="width:100%;height:1px;"></div>
+</header>
 
+<!-- PANEL LATERAL NUEVO -->
+<div id="mobileMenuPanel" class="mobile-menu-panel">
 
+    <ul class="navbar-nav">
 
+        <li class="nav-item">
+            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_intro">Home</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_empresa">Nosotros</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_servicios">Servicios</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_productos">Productos</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_contacto">Contacto</a>
+        </li>
+    </ul>
+</div>
+<script>
+// ABRIR PANEL
+document.getElementById("openMobileMenu").onclick = function () {
+    document.getElementById("mobileMenuPanel").classList.add("open");
+    document.getElementById("menuOverlay").classList.add("active");
+};
+
+// CERRAR AL TOCAR OVERLAY
+document.getElementById("menuOverlay").onclick = function () {
+    document.getElementById("mobileMenuPanel").classList.remove("open");
+    document.getElementById("menuOverlay").classList.remove("active");
+};
+
+// CERRAR AL TOCAR UNA OPCIÓN
+document.querySelectorAll("#mobileMenuPanel .nav-link").forEach(link => {
+    link.onclick = () => {
+        document.getElementById("mobileMenuPanel").classList.remove("open");
+        document.getElementById("menuOverlay").classList.remove("active");
+    };
+});
+</script>
 	<div class="entry-content2">
 				<div data-elementor-type="wp-page" data-elementor-id="3431" class="elementor elementor-3431" data-elementor-post-type="page">
 						<section class="elementor-section elementor-top-section elementor-element elementor-element-3e6b5a81 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3e6b5a81" data-element_type="section" id="pix_section_intro" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
@@ -333,7 +410,11 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
 			<div class="elementor-widget-wrap elementor-element-populated">
 						<div class="elementor-element elementor-element-31201c48 elementor-invisible elementor-widget elementor-widget-pix-badge" data-id="31201c48" data-element_type="widget" data-widget_type="pix-badge.default">
 				<div class="elementor-widget-container">
-					<div class="pix-element-div w-100 text-center"><h6 class="pix-badge-element d-inline-block mr-1 animate-in" data-anim-type="fade-in-up" data-anim-delay="0"><span class="badge font-weight-bold bg-dark-opacity-2  " style=" "><span class="text-white" style="">BIENVENIDOS A CAMBIO SUSTENTABLE – CONSULTORA AMBIENTAL</span></span></h6></div>				</div>
+					<div class="pix-element-div w-100 text-center"><h4 class="pix-badge-element d-inline-block mr-1 animate-in" data-anim-type="fade-in-up" data-anim-delay="0"><span class="badge font-weight-bold bg-dark-opacity-2  " style=" "><span class="text-white" style="">BIENVENIDOS A CAMBIO SUSTENTABLE</span></span></h4></div>				
+                </div>
+                				<div class="elementor-widget-container">
+					<div class="pix-element-div w-100 text-center"><h6 class="pix-badge-element d-inline-block mr-1 animate-in"  data-anim-type="fade-in-up" data-anim-delay="0"><span class="bg-dark-opacity-2  " style="font-style: italic; "><span class="text-white" style="">Consultora Ambiental</span></span></h6></div>				
+                </div>
 				</div>
 				<div class="elementor-element elementor-element-1b276991 elementor-widget elementor-widget-pix-sliding-text" data-id="1b276991" data-element_type="widget" data-widget_type="pix-sliding-text.default">
 				<div class="elementor-widget-container">
@@ -397,34 +478,98 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
 		</div>
 					</div>
 		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-112229d4 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="112229d4" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
-						<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-477fd740" data-id="477fd740" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-19342304 elementor-invisible elementor-widget elementor-widget-pix-3d-box" data-id="19342304" data-element_type="widget" data-widget_type="pix-3d-box.default">
-				<div class="elementor-widget-container">
-					<div class=" mb-3 mb-md-0 animate-in" data-anim-type="fade-in-up" data-anim-delay="0"><div class="card w-100 h-100 bg-gradient-primary pix-pt-120 pix-hover-item rounded-xl position-relative overflow-hidden2 text-white tilt fancy_card" ><img decoding="async" src="https://www.agrouplp.com.ar/wp-content/plugins/pixfort-core/functions/images/loading.webp" data-srcset="https://www.agrouplp.com.ar/wp-content/uploads/2022/03/6102d949a4dc1-300x201.jpeg 300w, https://www.agrouplp.com.ar/wp-content/uploads/2022/03/6102d949a4dc1-600x401.jpeg 600w, https://i.postimg.cc/yYKBqNwP/Diseño_sin_título.png 640w" data-src="" class="pix-lazy card-img pix-bg-image rounded-xl h-100 pix-opacity-2 pix-hover-opacity-6" loading="lazy" alt=""><div class="card-img-overlay overflow-visible d-inline-block w-100 pix-img-overlay pix-p-30 d-flex align-items-end text-left"><div class="w-100 "><h5 class="card-title  text-white font-weight-bold mb-0 animate-in" style=""> Nos distinguimos por ofrecer Profesionalismo, Responsabilidad y Compromiso, Trato Personalizado, Capacidad Resolutiva y Celeridad.</h5><p class="card-text pix-pt-10 text-light-opacity-9 text-18" style=""></p></div></div></div></div>				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-4ebdd5de" data-id="4ebdd5de" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-5c125f83 elementor-invisible elementor-widget elementor-widget-pix-3d-box" data-id="5c125f83" data-element_type="widget" data-widget_type="pix-3d-box.default">
-				<div class="elementor-widget-container">
-					<div class=" mb-3 mb-md-0 animate-in" data-anim-type="fade-in-up" data-anim-delay="0"><div class="card w-100 h-100 bg-gradient-primary  pix-pt-120 pix-hover-item rounded-xl position-relative overflow-hidden2 text-white tilt fancy_card" ><img decoding="async" src="https://www.agrouplp.com.ar/wp-content/plugins/pixfort-core/functions/images/loading.webp" data-srcset="https://www.agrouplp.com.ar/wp-content/uploads/2020/09/onepage-image-2-218x300.jpg 218w, https://i.postimg.cc/hPngFGHb/Diseño_sin_título_(1).png 400w" data-src="https://i.postimg.cc/hPngFGHb/Diseño_sin_título_(1).png" class="pix-lazy card-img pix-bg-image rounded-xl h-100 pix-opacity-2 pix-hover-opacity-6" loading="lazy" alt=""><div class="card-img-overlay overflow-visible d-inline-block w-100 pix-img-overlay pix-p-30 d-flex align-items-end text-left"><div class="w-100 "><h5 class="card-title  text-white font-weight-bold mb-0 animate-in" style="">Tenemos como PROPÓSITO que, quienes trabajen con nosotros adquieran, desarrollen, y contagien el concepto de sustentabilidad desde su actividad diaria.</h5><p class="card-text pix-pt-10 text-light-opacity-9 text-sm" style=""></p></div></div></div></div>				</div>
-				</div>
-					</div>
-		</div>
-				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-3aa2f13a" data-id="3aa2f13a" data-element_type="column">
-			<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-25a71c03 elementor-invisible elementor-widget elementor-widget-pix-3d-box" data-id="25a71c03" data-element_type="widget" data-widget_type="pix-3d-box.default">
-				<div class="elementor-widget-container">
-					<div class=" mb-3 mb-md-0 animate-in" data-anim-type="fade-in-up" data-anim-delay="0"><div class="card w-100 h-100 bg-gradient-primary pix-pt-120 pix-hover-item rounded-xl position-relative overflow-hidden2 text-white tilt fancy_card" ><img decoding="async" src="https://www.agrouplp.com.ar/wp-content/plugins/pixfort-core/functions/images/loading.webp" data-srcset="ultivos-300x195.jpg 300w, https://www.agrouplp.com.ar/wp-content/uploads/2022/03/cultivos-600x390.jpg 600w, https://www.agrouplp.com.ar/wp-content/uploads/2022/03/cultivos-1024x665.jpg 1024w, https://www.agrouplp.com.ar/wp-content/uploads/2022/03/cultivos-768x499.jpg 768w, https://i.postimg.cc/nVBZwmw9/Diseño_sin_título_(2).png 1536w, https://www.agrouplp.com.ar/wp-content/uploads/2022/03/cultivos.jpg 2000w" data-src="https://www.agrouplp.com.ar/wp-content/uploads/2022/03/cultivos-1024x665.jpg" class="pix-lazy card-img pix-bg-image rounded-xl h-100 pix-opacity-2 pix-hover-opacity-6" loading="lazy" alt=""><div class="card-img-overlay overflow-visible d-inline-block w-100 pix-img-overlay pix-p-30 d-flex align-items-end text-left"><div class="w-100 "><h5 class="card-title  text-white font-weight-bold mb-0 animate-in" style="">Como VISIÓN buscamos que sean cada vez más las organizaciones de triple impacto, que éstas sean distinguidas y se avance hacia un modelo sostenible de desarrollo.</h5><p class="card-text pix-pt-10 text-light-opacity-9 " style=""></p></div></div></div></div>				</div>
-				</div>
-					</div>
-		</div>
-	</div>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-112229d4 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="112229d4" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+    <div class="elementor-container elementor-column-gap-default">
 
+        <!-- 1️⃣ PRIMERA PLACA (SIN CAMBIOS) -->
+        <div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-477fd740" data-id="477fd740" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="elementor-element elementor-element-19342304 elementor-invisible elementor-widget elementor-widget-pix-3d-box" data-id="19342304" data-element_type="widget" data-widget_type="pix-3d-box.default">
+                    <div class="elementor-widget-container">
+                        <div class="mb-3 mb-md-0 animate-in" data-anim-type="fade-in-up" data-anim-delay="0">
+                            <div class="card w-100 h-100 bg-gradient-primary pix-pt-120 pix-hover-item rounded-xl position-relative overflow-hidden2 text-white tilt fancy_card">
+                                <img decoding="async" src="https://www.agrouplp.com.ar/wp-content/plugins/pixfort-core/functions/images/loading.webp" data-srcset="https://www.agrouplp.com.ar/wp-content/uploads/2022/03/6102d949a4dc1-300x201.jpeg 300w, https://www.agrouplp.com.ar/wp-content/uploads/2022/03/6102d949a4dc1-600x401.jpeg 600w, https://i.postimg.cc/yYKBqNwP/Diseño_sin_título.png 640w" data-src="" class="pix-lazy card-img pix-bg-image rounded-xl h-100 pix-opacity-2 pix-hover-opacity-6" loading="lazy" alt="">
+                                <div class="card-img-overlay overflow-visible d-inline-block w-100 pix-img-overlay pix-p-30 d-flex align-items-end text-left">
+                                    <div class="w-100 ">
+                                        <h5 class="card-title text-white font-weight-bold mb-0 animate-in"> Nos distinguimos por ofrecer Profesionalismo, Responsabilidad y Compromiso, Trato Personalizado, Capacidad Resolutiva y Celeridad.</h5>
+                                        <p class="card-text pix-pt-10 text-light-opacity-9 text-18"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2️⃣ PLACA MISION + VISION (MEJORADA SIN BORRAR NADA) -->
+        <div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-4ebdd5de" data-id="4ebdd5de" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="elementor-element elementor-element-5c125f83 elementor-invisible elementor-widget elementor-widget-pix-3d-box" data-id="5c125f83" data-element_type="widget" data-widget_type="pix-3d-box.default">
+                    <div class="elementor-widget-container">
+                        <div class="mb-3 mb-md-0 animate-in" data-anim-type="fade-in-up" data-anim-delay="0">
+                            <div class="card w-100 h-100 bg-gradient-primary pix-pt-60 pix-hover-item rounded-xl position-relative overflow-hidden2 text-white tilt fancy_card">
+
+                                <img decoding="async" 
+                                     src="https://www.agrouplp.com.ar/wp-content/plugins/pixfort-core/functions/images/loading.webp"
+                                     data-srcset="https://i.postimg.cc/hPngFGHb/Diseño_sin_título_(1).png 600w"
+                                     data-src="https://i.postimg.cc/hPngFGHb/Diseño_sin_título_(1).png"
+                                     class="pix-lazy card-img pix-bg-image rounded-xl h-100 pix-opacity-2 pix-hover-opacity-6"
+                                     loading="lazy" alt="">
+
+                                <div class="card-img-overlay overflow-visible d-inline-block w-100 pix-img-overlay pix-p-40">
+
+                                    <!-- CONTENEDOR FLEX RESPONSIVE -->
+                                    <div class="mision-vision-box" style="
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: space-between;
+                                        align-items: flex-start;
+                                        gap: 50px;
+                                        width: 100%;
+                                    ">
+
+                                        <!-- MISIÓN -->
+                                        <div style="flex: 1;">
+                                            <h4 class="card-title text-white font-weight-bold mb-3">MISIÓN</h4>
+                                            <p class="card-text text-light-opacity-9">
+                                                Tenemos como misión que quienes trabajen con nosotros adquieran, desarrollen y contagien el concepto de sustentabilidad desde su actividad diaria.
+                                            </p>
+                                        </div>
+
+                                        <!-- VISIÓN -->
+                                        <div style="flex: 1;">
+                                            <h4 class="card-title text-white font-weight-bold mb-3">VISIÓN</h4>
+                                            <p class="card-text text-light-opacity-9">
+                                                Buscamos que cada vez sean más las organizaciones de triple impacto, que éstas sean distinguidas y se avance hacia un modelo sostenible de desarrollo.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- RESPONSIVE MOBILE FIX -->
+                                    <style>
+                                        @media(max-width: 767px){
+                                            .mision-vision-box{
+                                                flex-direction: column !important;
+                                                gap: 20px !important;
+                                            }
+                                        }
+                                    </style>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    </div>
+</section>
 	<section class="testimonial-section py-5" style="background-color:#f7f7f7;">
     <div class="container">
         <div class="row align-items-center g-4">
@@ -487,7 +632,7 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
                                    font-size:20px; font-weight:600; cursor:pointer; text-align:left;
                                    display:flex; justify-content:space-between; align-items:center;
                                    border:none; transition:0.3s;">
-                            Servicios Ambientales
+                            Gestión Ambiental
                             <span class="arrow" style="transition:0.3s;">▼</span>
                         </button>
 
@@ -496,13 +641,16 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
                                    background:#ffffff22; color:white; padding:0 22px; border-left:4px solid #11693a;">
                             
                             <ul style="margin:20px 0; padding-left:22px; line-height:1.8;">
+                                <li>Declaración de Impacto Ambiental.</li>
+                                <li>Permiso de Vuelco de Efluentes.</li>
+                                <li>Permiso de Extacción de Agua Subterránea</li>
+                                <li>Inscripción como Generadores de Residuos Peligrosos, a nivel provincial y nacional.</li>
                                 <li>Permisos de Exploración, Explotación y Cierre de Proyectos Mineros.</li>
                                 <li>Auditorías y Monitoreo Ambiental.</li>
                                 <li>Seguro Ambiental Obligatorio.</li>
                                 <li>Estudios de Línea Base.</li>
                                 <li>Muestreos Hídricos y de Suelo.</li>
-                                <li>Control de Plagas y Vectores.</li>
-                                <li>Relevamiento Ambiental Aéreo con Drone.</li>
+                                <li>Control de Plagas y Vectores.</li>             
                             </ul>
                         </div>
                     </div>
@@ -514,7 +662,7 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
                                    font-size:20px; font-weight:600; cursor:pointer; text-align:left;
                                    display:flex; justify-content:space-between; align-items:center;
                                    border:none; transition:0.3s;">
-                            Sustentabilidad
+                            Sustentabilidad Empresaria
                             <span class="arrow" style="transition:0.3s;">▼</span>
                         </button>
 
@@ -529,7 +677,8 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
                                 <li>Asistencia y diseño de Planes GIRSU.</li>
                                 <li>Planificación y certificación de Eventos Sostenibles.</li>
                                 <li>Acompañamiento en procesos de certificación.</li>
-                                <li>Formulación de Proyectos para Créditos Verdes.</li>
+                                <li>Formulación de Proyectos y aplicación a Líneas de Créditos Verdes.</li>
+                                <li>Relevamiento Ambiental Aéreo con Drone.</li>
                             </ul>
                         </div>
                     </div>
@@ -607,7 +756,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                padding:0 20px; border-radius:0 0 10px 10px;">
                         
                         <p style="text-align:center; font-size:20px; padding:20px 0; color:#7FBF3E; margin:0;">
-                            Tendremos la más grande variedad de productos ecofriendly para lograr hacer tangible la sustentabilidad..
+                            Tendremos la más grande variedad de productos ecofriendly para hacer tangible la sustentabilidad..
                         </p>
                     </div>
                     </div>
@@ -633,7 +782,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
-
 <section class="clientes-section py-2" style="background:#f7f7f7;">
     <div class="container text-center mb-4">
         <h2 style="font-size:32px; font-weight:700; color:#2e7d32; text-transform:uppercase;">
@@ -644,140 +792,59 @@ document.addEventListener("DOMContentLoaded", function () {
         </p>
     </div>
 
-    <!-- Slider infinito -->
-    <div class="slider">
-        <div class="slide-track">
+    <!-- SLIDER -->
+    <div class="swiper clientesSwiper">
+        
+        <!-- WRAPPER -->
+        <div class="swiper-wrapper">
 
-            <!-- LOGOS (1ra pasada) -->
-            <div class="slide"><img src="assets/clientes/15-anos-LOGO-Web-80.png"></div>
-            <div class="slide"><img src="assets/clientes/agile-agro-logo.png"></div>
-            <div class="slide"><img src="assets/clientes/axion.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Burgwardt.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Cabaña Curaco.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Carnes Naturales de La Pampa.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Forestal Pico.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Frigorífico hv.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Frigorífico Pico.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Frigórífico Santa Ana.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/gobierno de la pampa.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/GRUPO NORTE.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Nación Seguros.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Nurpanel.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/QUEMU MUNI.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Rener.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Sancor Seguros.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Sin título.png"></div>
-            <div class="slide"><img src="assets/clientes/Carnes Pampeanas.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/CFI.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/CLEANOSOL.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Ecos energía.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/ferroexpreso.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/fiduciaria.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/ISESS.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Knight Psieold.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Logo Pampawagen.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Miracuya.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Muni de Alta Italia.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Muni de Gral Pico.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Televisión Pública Pampeana.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Toyota Bhassa.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Trayken.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/UNLPam.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/VIAL A SA.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/victorica-la-pampa-logo-22.png"></div>
-            <div class="slide"><img src="assets/clientes/ypf.jpeg"></div>
-
-            <!-- LOGOS duplicados (para loop infinito) -->
-            <div class="slide"><img src="assets/clientes/15-anos-LOGO-Web-80.png"></div>
-            <div class="slide"><img src="assets/clientes/agile-agro-logo.png"></div>
-            <div class="slide"><img src="assets/clientes/axion.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Burgwardt.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Cabaña Curaco.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Carnes Naturales de La Pampa.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Forestal Pico.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Frigorífico hv.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Frigorífico Pico.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Frigórífico Santa Ana.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/gobierno de la pampa.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/GRUPO NORTE.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Nación Seguros.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Nurpanel.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/QUEMU MUNI.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Rener.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Sancor Seguros.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Sin título.png"></div>
-            <div class="slide"><img src="assets/clientes/Carnes Pampeanas.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/CFI.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/CLEANOSOL.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Ecos energía.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/ferroexpreso.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/fiduciaria.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/ISESS.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Knight Psieold.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Logo Pampawagen.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Miracuya.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Muni de Alta Italia.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Muni de Gral Pico.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Televisión Pública Pampeana.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Toyota Bhassa.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/Trayken.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/UNLPam.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/VIAL A SA.jpeg"></div>
-            <div class="slide"><img src="assets/clientes/victorica-la-pampa-logo-22.png"></div>
-            <div class="slide"><img src="assets/clientes/ypf.jpeg"></div>
-
+            <!-- LOGOS (originales) -->
+            <div class="swiper-slide"><img src="assets/clientes/15-anos-LOGO-Web-80.png" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/agile-agro-logo.png" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/axion.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Burgwardt.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Cabaña Curaco.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Carnes Naturales de La Pampa.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Forestal Pico.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Frigorífico hv.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Frigorífico Pico.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Frigórífico Santa Ana.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/gobierno de la pampa.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/GRUPO NORTE.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Nación Seguros.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Nurpanel.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/QUEMU MUNI.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Rener.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Sancor Seguros.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Sin título.png" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Carnes Pampeanas.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/CFI.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/CLEANOSOL.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Ecos energía.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/ferroexpreso.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/fiduciaria.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/ISESS.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Knight Psieold.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Logo Pampawagen.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Miracuya.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Muni de Alta Italia.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Muni de Gral Pico.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Televisión Pública Pampeana.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Toyota Bhassa.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/Trayken.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/UNLPam.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/VIAL A SA.jpeg" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/victorica-la-pampa-logo-22.png" alt=""></div>
+            <div class="swiper-slide"><img src="assets/clientes/ypf.jpeg" alt=""></div>
+            <!-- LOGOS (duplicados para loop suave) -->
         </div>
+        <!-- FLECHAS (fuera del wrapper) -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!-- PUNTOS -->
+        <div class="swiper-pagination"></div>
     </div>
 </section>
-
-<style>
-/* Contenedor del slider */
-.slider {
-    height: 150px;
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-    margin: 25px 0;
-}
-
-.slide-track {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    animation: scroll 40s linear infinite;
-    width: max-content;  /*  ESTA LÍNEA RESUELVE TODO */
-}
-
-/* Cada logo en su caja */
-.slide {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Tamaño de logos */
-.slide img {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.9;
-    transition: 0.3s;
-}
-
-.slide img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.08);
-}
-
-/* Animación universal SIN importar cantidad de logos */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } 
-}
-</style>
 		</div>
 				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-1419c7fc" data-id="1419c7fc" data-element_type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
@@ -793,7 +860,6 @@ document.addEventListener("DOMContentLoaded", function () {
 					</div>
 		</div>
 					</div>
-		</section>
 					</div>
 		</div>
 					</div>
@@ -817,11 +883,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 </h2>
 
             </div><!-- cierre widget-wrap -->
-
         </div><!-- cierre columna 100% -->
-
-    </div><!-- cierre container -->
-
+    </div><!-- cierre container -->   
 </section>
 		<section class="elementor-section elementor-top-section elementor-element elementor-element-11cbe405 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="11cbe405" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
     <div class="elementor-container elementor-column-gap-default">
@@ -990,29 +1053,31 @@ document.addEventListener("DOMContentLoaded", function () {
     .media-body { text-align: left !important; }
 }
 </style>
-		</section>
-				<div class="elementor-element elementor-element-94f6a62 elementor-widget elementor-widget-html" data-id="94f6a62" data-element_type="widget" data-widget_type="html.default">
-				<div class="elementor-widget-container">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5433.855576115892!2d-64.30689753753454!3d-36.62899864713448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95c2cd35a1e30fb9%3A0x91a6946797686e9c!2s%C2%ABCAMBIO%20SUSTENTABLE%C2%BB%20Consultora%20Ambiental!5e0!3m2!1ses!2sar!4v1764544168220!5m2!1ses!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>				</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				</div>
-			</div><!-- .entry-content -->
 
-	</article><!-- #post-3431 -->
-                            <div class="clearfix"></div>
-                            
-                    </main><!-- #main -->
-                </div><!-- #primary -->
+<section class="elementor-section elementor-top-section elementor-element"
+         id="pix_section_contacto"
+         data-element_type="section">
+
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element">
+
+            <div class="elementor-widget-wrap elementor-element-populated">
+
+                <!-- Mapa -->
+                <div class="elementor-element elementor-widget elementor-widget-html">
+                    <div class="elementor-widget-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5433.855576115892!2d-64.30689753753454!3d-36.62899864713448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95c2cd35a1e30fb9%3A0x91a6946797686e9c!2s%C2%ABCAMBIO%20SUSTENTABLE%C2%BB%20Consultora%20Ambiental!5e0!3m2!1ses!2sar!4v1764544168220!5m2!1ses!2sar"
+                                width="100%" height="450" style="border:0;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
             </div>
-
 
         </div>
     </div>
-</div>
+
+</section>
 
 <footer id="pix-page-footer" class="site-footer2 bg-white my-0 py-0" data-sticky-bg="" data-sticky-color="">
     <div class="container-fluid px-0 mx-0 my-0 py-0">
@@ -1284,6 +1349,60 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.agrouplp.com.ar\/wp-a
 </script>
 <script type="text/javascript" src="https://www.agrouplp.com.ar/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.29.0" id="elementor-pro-frontend-js"></script>
 <script type="text/javascript" src="https://www.agrouplp.com.ar/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.29.0" id="pro-elements-handlers-js"></script>
-</body>
 
-</html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+var swiper = new Swiper(".clientesSwiper", {
+    slidesPerView: 5,      // 5 visibles
+    slidesPerGroup: 5,     // mueve 5 por vez
+    spaceBetween: 20,
+    loop: true,
+    speed: 700,            // velocidad del movimiento
+    autoplay: {
+        delay: 2000,       // tiempo entre cada grupo
+        disableOnInteraction: false
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    on: {
+        init() {
+            actualizarColores();
+        },
+        slideChangeTransitionStart() {
+            actualizarColores();
+        }
+    }
+});
+function actualizarColores() {
+
+    // sacar el color de todos los logos
+    document.querySelectorAll(".logo-box img")
+        .forEach(img => img.classList.remove("logo-color"));
+
+    let start = swiper.activeIndex;
+    let visibles = swiper.params.slidesPerView;
+
+    // colorear uno por uno con delay
+    for (let i = 0; i < visibles; i++) {
+
+        let slide = swiper.slides[start + i];
+        if (!slide) continue;
+
+        let img = slide.querySelector(".logo-box img");
+
+        if (img) {
+            setTimeout(() => {
+                img.classList.add("logo-color");
+            }, i * 1000); // ⏱ 1 segundo entre cada logo
+        }
+    }
+}
+</script>
+</body>
