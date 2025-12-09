@@ -262,13 +262,20 @@ footer .elementor-container {
     }
 }
 
+/* Para pantallas chicas (hasta 768px) */
+@media (max-width: 768px) {
+    #sliding-text-31694528 h1,
+    #sliding-text-31694528 .pix-sliding-headline {
+        font-size: 22px !important;
+        line-height: 1.2 !important;
+    }
+}
 
-/* TITULO INICIAL PARA MOVILES */
-/* Para pantallas MUY chicas (480px o menos) */
+/* Para pantallas MUY chicas (hasta 480px) */
 @media (max-width: 480px) {
     #sliding-text-31694528 h1,
     #sliding-text-31694528 .pix-sliding-headline {
-        font-size: 24px !important;  /* más chico aún */
+        font-size: 18px !important; /* más chico aún */
     }
 }
 
@@ -569,4 +576,82 @@ header, nav, .navbar, .navbar-container {
     margin-top: 70px !important; /* altura del navbar */
 }
 
+/* HAMBURGER ICON – TRES RAYITAS */
+.hamburger-box {
+    width: 32px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+}
 
+.hamburger-inner {
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    width: 32px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+/* Línea superior */
+.hamburger-inner::before {
+    content: "";
+    top: -8px;
+}
+
+/* Línea inferior */
+.hamburger-inner::after {
+    content: "";
+    top: 8px;
+}
+
+/* Cuando se abre NO se convierte en X */
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: #000;
+    transform: none !important;
+    top: auto !important;
+}
+
+
+/* ===== AJUSTES MOBILE PARA ICONOS DE CONTACTO ===== */
+@media (max-width: 767px) {
+
+    /* Alinear todo a la izquierda como los otros ítems */
+    .elementor-element-57c5cc36 .media {
+        flex-direction: row !important;
+        text-align: left !important;
+        align-items: center !important;
+    }
+
+    /* Alinear el texto (título + correo) */
+    .elementor-element-57c5cc36 .media-body {
+        text-align: left !important;
+    }
+
+    /* Permitir que el correo haga "quiebre" bien */
+    .elementor-element-57c5cc36 .media-body div {
+        word-break: break-all; 
+        font-size: 16px !important; /* Para que no se vea exagerado */
+    }
+
+    /* Ajustar el título */
+    .elementor-element-57c5cc36 h6 {
+        font-size: 15px !important;
+        margin-bottom: 3px !important;
+    }
+
+    /* Achicar el icono para que no empuje al texto */
+    .elementor-element-57c5cc36 svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+}
