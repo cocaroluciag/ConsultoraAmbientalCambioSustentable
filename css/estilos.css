@@ -21,13 +21,6 @@
     z-index: 1;
 }
 
-html, body, .site, .wp-site-blocks {
-    background: url("https://i.postimg.cc/fT70j6fp/b2Nlci0x-Lmpw-Zw.jpg") !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-}
-
 
 /* Navbar fijo a 100px */
 .navbar {
@@ -48,6 +41,93 @@ html, body, .site, .wp-site-blocks {
     height: 100px !important;  /* Cambiá a tu gusto: 130, 150, 160… */
     width: auto !important;
 }
+
+/* ============================
+      NAVBAR / HEADER MÓVIL
+============================= */
+@media (max-width: 768px) {
+
+    /* --- Header móvil --- */
+    #mobile_head {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+        height: auto !important;
+    }
+
+    #mobile_head .container {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+    }
+
+    /* Logo del header móvil */
+    #mobile_head .navbar-brand img.pix-logo {
+        height: 70px !important;  /* AJUSTA si lo querés más grande/pequeño */
+        width: auto !important;
+        margin-top: 5px !important;
+    }
+
+    /* Botón hamburguesa */
+    #mobile_head .navbar-toggler {
+        margin-top: 5px !important;
+        padding: 4px !important;
+    }
+
+    /* Línea divisoria debajo del header */
+    #mobile_head + .pix-header-border {
+        margin-top: 0 !important;
+    }
+
+    /* Topbar móvil ajustado */
+    .pix-topbar.pix-header-mobile {
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+    }
+
+    /* Íconos sociales en móvil */
+    .pix-header-mobile .pix-social {
+        margin-top: 6px !important;
+    }
+
+
+    /* ============================
+       PANEL / MENÚ MÓVIL
+    ============================= */
+
+    .mobile-menu-panel {
+        padding-top: 40px !important; /* Reduce espacio */
+        padding-bottom: 20px !important;
+    }
+
+    /* Logo dentro del panel móvil (el problema de la captura) */
+    .mobile-menu-panel .navbar-brand img,
+    .mobile-menu-panel img.pix-logo {
+        width: 90px !important;
+        height: auto !important;
+        margin: 0 auto 10px auto !important;
+        display: block !important;
+    }
+
+    .mobile-menu-panel .navbar-brand {
+        padding: 5px 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Enlaces del menú móvil */
+    .mobile-menu-panel .nav-link {
+        padding: 16px 0 !important;
+        font-size: 18px !important;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    /* Cierre (X) del menú móvil */
+    .mobile-menu-close {
+        top: 15px !important;
+        right: 15px !important;
+        font-size: 24px !important;
+    }
+}
+
 
 #titulo-verde {
     color: #3BA935 !important;
@@ -196,20 +276,6 @@ html, body, .site, .wp-site-blocks {
     padding-bottom: 40px;
 }
 
-/* Asegura que los contenedores internos no impongan un fondo distinto */
-.clientes-section * {
-    background-color: #ffffff !important;
-}/* Fondo blanco sólido para toda la sección de CONTACTO */
-#pix_section_contacto {
-    background-color: #ffffff !important;
-}
-
-/* Asegura que ningún contenedor interno imponga otro fondo */
-#pix_section_contacto .elementor-container,
-#pix_section_contacto .elementor-column,
-#pix_section_contacto .elementor-widget-wrap {
-    background-color: transparent !important;
-}
 
 /* Elimina espacio debajo del carrusel */
 .logo-carousel-container,
@@ -221,11 +287,153 @@ html, body, .site, .wp-site-blocks {
 
 /* Forzar fondo BLANCO en toda la sección de contacto */
 
+footer, 
+footer .elementor-widget-container,
+footer .elementor-container {
+    display: flex;
+    justify-content: center !important;
+     text-align: center !important;
+}
 
 
+/* Alinea la columna derecha con la izquierda en la sección de contacto */
+.elementor-element-0ca556e {
+    padding-top: 35px !important; /* Ajustá entre 25px y 50px según te quede mejor */
+}
 
 
+/* CARRUSEL CLIENTES AJUSTADO A MOVIL */
+/* ==========================
+   LOGOS — VERSIÓN ESCRITORIO (PC)
+   ========================== */
+@media (min-width: 769px) {
+    .clientesSwiper .logo-box {
+        width: 120px !important;      /* tamaño que querías conservar */
+        height: 120px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .clientesSwiper .logo-box img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+/* ==========================
+   LOGOS — VERSIÓN MÓVIL
+   ========================== */
+@media (max-width: 768px) {
+
+    /* achica solo la caja y la imagen en móvil */
+    .clientesSwiper .logo-box {
+        width: 75px !important;
+        height: 75px !important;
+        padding: 8px !important;
+    }
+
+    .clientesSwiper .logo-box img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 480px) {
+    .clientesSwiper .logo-box {
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
 
 
+/* TITULO INICIAL PARA MOVILES */
+/* Para pantallas MUY chicas (480px o menos) */
+@media (max-width: 480px) {
+    #sliding-text-31694528 h1,
+    #sliding-text-31694528 .pix-sliding-headline {
+        font-size: 24px !important;  /* más chico aún */
+    }
+}
 
+/* ================================
+   AJUSTE DE FRASE EN TESTIMONIAL (MÓVIL)
+   ================================ */
+@media (max-width: 768px) {
+    .testimonial-section p {
+        font-size: 1rem !important; /* antes 1.2rem */
+        line-height: 1.45 !important;
+    }
 
+    .testimonial-section img {
+        width: 160px !important;
+        height: 160px !important;
+    }
+
+    .testimonial-section .col-md-8 > div {
+        padding: 20px !important;
+    }
+}
+
+/* ================================
+   AJUSTES DE LA FRASE PRINCIPAL 
+   (¿HABILITACIONES...?)
+   ================================ */
+@media (max-width: 768px) {
+    #sliding-text-31694528 h1 {
+        font-size: 1.4rem !important;
+        line-height: 1.2 !important;
+    }
+}
+
+/* ================================
+   SECCIÓN CONTACTO — ORDEN Y LEGIBILIDAD EN MÓVIL
+   ================================ */
+@media (max-width: 768px) {
+
+    /* Fuerza que cada columna sea full width */
+    #pix_section_contacto .elementor-inner-section .elementor-column {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+    }
+
+    /* Acomoda cada bloque uno debajo del otro */
+    #pix_section_contacto .media {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Alinear textos a la izquierda para mejor lectura */
+    #pix_section_contacto .media-body {
+        text-align: left !important;
+    }
+
+    /* Íconos más chicos y proporcionados */
+    #pix_section_contacto .icon-circle svg {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    /* Espaciados */
+    #pix_section_contacto .pix-el-text p {
+        font-size: 1rem !important;
+    }
+
+    #pix_section_contacto h6,
+    #pix_section_contacto h3 {
+        font-size: 1.2rem !important;
+    }
+
+    /* Botón de WhatsApp ancho total */
+    #pix_section_contacto a.btn {
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 1rem !important;
+        margin-top: 15px !important;
+    }
+}
