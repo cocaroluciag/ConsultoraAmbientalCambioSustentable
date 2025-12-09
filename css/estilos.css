@@ -42,92 +42,6 @@
     width: auto !important;
 }
 
-/* ============================
-      NAVBAR / HEADER MÓVIL
-============================= */
-@media (max-width: 768px) {
-
-    /* --- Header móvil --- */
-    #mobile_head {
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
-        height: auto !important;
-    }
-
-    #mobile_head .container {
-        padding-top: 6px !important;
-        padding-bottom: 6px !important;
-    }
-
-    /* Logo del header móvil */
-    #mobile_head .navbar-brand img.pix-logo {
-        height: 70px !important;  /* AJUSTA si lo querés más grande/pequeño */
-        width: auto !important;
-        margin-top: 5px !important;
-    }
-
-    /* Botón hamburguesa */
-    #mobile_head .navbar-toggler {
-        margin-top: 5px !important;
-        padding: 4px !important;
-    }
-
-    /* Línea divisoria debajo del header */
-    #mobile_head + .pix-header-border {
-        margin-top: 0 !important;
-    }
-
-    /* Topbar móvil ajustado */
-    .pix-topbar.pix-header-mobile {
-        padding-top: 5px !important;
-        padding-bottom: 5px !important;
-    }
-
-    /* Íconos sociales en móvil */
-    .pix-header-mobile .pix-social {
-        margin-top: 6px !important;
-    }
-
-
-    /* ============================
-       PANEL / MENÚ MÓVIL
-    ============================= */
-
-    .mobile-menu-panel {
-        padding-top: 40px !important; /* Reduce espacio */
-        padding-bottom: 20px !important;
-    }
-
-    /* Logo dentro del panel móvil (el problema de la captura) */
-    .mobile-menu-panel .navbar-brand img,
-    .mobile-menu-panel img.pix-logo {
-        width: 90px !important;
-        height: auto !important;
-        margin: 0 auto 10px auto !important;
-        display: block !important;
-    }
-
-    .mobile-menu-panel .navbar-brand {
-        padding: 5px 0 !important;
-        margin-bottom: 10px !important;
-    }
-
-    /* Enlaces del menú móvil */
-    .mobile-menu-panel .nav-link {
-        padding: 16px 0 !important;
-        font-size: 18px !important;
-        font-weight: 500;
-        text-align: center;
-    }
-
-    /* Cierre (X) del menú móvil */
-    .mobile-menu-close {
-        top: 15px !important;
-        right: 15px !important;
-        font-size: 24px !important;
-    }
-}
-
 
 #titulo-verde {
     color: #3BA935 !important;
@@ -437,3 +351,222 @@ footer .elementor-container {
         margin-top: 15px !important;
     }
 }
+
+/* Fuerza SIEMPRE sticky en móviles */
+@media (max-width: 768px) {
+    .pix-mobile-header-sticky,
+    .pix-header-mobile-sticky {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 9999 !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #mobile_head {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    #mobile_head .container {
+        width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
+
+
+/* ================================
+   HEADER & NAV — MÓVIL
+================================ */
+@media (max-width: 991px) {
+
+    /* ocultar topbar vieja */
+    .pix-topbar { 
+        display: none !important; 
+    }
+
+    /* ocultar navbar de escritorio */
+    header#pix-header,
+    .pix-header-desktop,
+    .desktop-nav {
+        display: none !important;
+    }
+
+    /* header móvil */
+    #mobile_head {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        z-index: 9999;
+        padding: 5px 0 !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    body {
+        padding-top: 70px !important;
+    }
+
+    /* contenedor */
+    #mobile_head .container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    /* NAV layout 3 columnas */
+    .navbar-mobile-custom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 4px 0;
+    }
+
+    /* LOGO */
+    .navbar-mobile-custom .mobile-left .pix-logo{
+        height: 55px !important;
+        width: auto;
+    }
+
+    /* ICONOS CENTRALES */
+    .navbar-mobile-custom .mobile-center{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        z-index: 9999;
+    }
+
+    .navbar-mobile-custom .mobile-icon{
+        font-size: 22px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #000;
+    }
+
+    /* BOTÓN HAMBURGUESA */
+    .navbar-mobile-custom .mobile-right .navbar-toggler{
+        padding: 8px;
+        z-index: 9999;
+    }
+
+    /* evitar que cambie a cruz */
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+        transform: none !important;
+    }
+
+    /* siempre hamburguesa negra */
+    .hamburger-inner,
+    .hamburger-inner::before,
+    .hamburger-inner::after {
+        background-color: #000 !important;
+    }
+
+    /* ===============================
+       PANEL DEL MENU MÓVIL
+    =============================== */
+    .mobile-menu-panel{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 340px;
+        height: 100vh;
+        background: #fff;
+        z-index: 9998;
+        padding: 30px 20px;
+        transition: right .35s ease;
+        overflow-y: auto;
+    }
+
+    .mobile-menu-panel.active{
+        right: 0;
+    }
+
+    /* LINKS */
+    .mobile-menu-panel .nav-link{
+        display: block;
+        padding: 18px 0;
+        font-size: 20px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* overlay oscuro */
+    .menu-overlay{
+        position: fixed;
+        top: 0;
+        left: 0; 
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.4);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+        z-index: 9990;
+    }
+    .menu-overlay.active{
+        opacity: 1;
+        visibility: visible
+    }
+}
+
+/* PC — oculta todo lo móvil */
+@media (min-width: 992px){
+    #mobile_head,
+    .mobile-menu-panel,
+    .menu-overlay {
+        display: none !important;
+    }
+}
+
+/* 🔥🔥🔥 ELIMINAR POR COMPLETO EL NAVBAR DE ESCRITORIO EN MÓVIL */
+@media (max-width: 991px) {
+
+    /* TODOS los contenedores posibles del header del tema */
+    #masthead,
+    header#masthead,
+    .pix-header,
+    .pix-header-main,
+    .pix-header-fixed,
+    .pix-header-desktop,
+    .site-header,
+    .desktop-nav,
+    header#pix-header {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+header, nav, .navbar, .navbar-container {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: #fff; /* o el color de tu navbar */
+}
+
+.mobile-menu {
+    margin-top: 70px !important; /* altura del navbar */
+}
+
+

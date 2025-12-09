@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" href="css/estilos.css">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="pingback" href="https://www.agrouplp.com.ar/xmlrpc.php" />
@@ -179,9 +179,12 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
          </div>
               </div>
       </div>
-                <div class="pix-header-scroll-placeholder"></div>
 
-                <header
+      <!-- OVERLAY -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- NAVBAR ESCRITORIO (EL QUE YA TRAE EL TEMA) -->
+<header
     id="masthead"
     class="pix-header pix-is-sticky-header sticky-top pix-header-desktop d-block pix-header-normal pix-scroll-shadow header-scroll pix-header-container-area bg-white"
     data-text="black"
@@ -189,7 +192,7 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
     data-bg-class="bg-white"
     data-scroll-class="bg-white"
     data-scroll-color=""
-
+>
     <div class="container">
       <nav class="navbar pix-main-menu navbar-hover-drop navbar-expand-lg navbar-light text-left">
 
@@ -211,7 +214,7 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
             <div class="bg-gray-2 pix-header-divider pix-sm"></div>
         </div>
 
-        <!-- REDES SOCIALES -->
+        <!-- REDES -->
         <div class="pix-px-5 d-inline-flex align-items-center pix-social text-18 animate-in" data-anim-type="fade-in">
             <a class="d-flex align-items-center text-black px-2" target="_blank" href="https://www.instagram.com/cslapampa" title="Instagram">
                 <i class="bi bi-instagram"></i>
@@ -221,7 +224,6 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
             </a>
         </div>
 
-        <!-- 👇 ESTA LÍNEA RESTAURA EL ESPACIO Y EVITA QUE SE ESCONDAN -->
         <div class="flex-grow-1"></div>
 
         <!-- MENÚ -->
@@ -235,32 +237,54 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
             </ul>
         </div>
 
-        <!-- CARRITO -->
-        <a href="#pix_section_productos" class="btn btn-link text-black d-inline-flex align-items-center">
-            <i class="bi bi-bag"></i>
-            <span class="cart-count woo-cart-count badge-pill bg-primary">0</span>
-        </a>
-
-        <!-- LOGIN -->
-        <div class="d-inline-flex align-items-center text-sm mb-0">
-            <a class="btn btn-light text-black font-weight-bold d-flex align-items-center" href="#pix_section_productos">
-                <i class="bi bi-lock-fill mr-2"></i> <span>Registro/Acceder</span>
-            </a>
-        </div>
-
-        <!-- TIENDA -->
-        <div class="d-inline-flex align-items-center text-sm mb-0">
-            <a class="btn btn-light text-black font-weight-bold d-flex align-items-center" href="#pix_section_productos">
-                <i class="bi bi-cart-fill mr-2"></i> <span>Tienda</span>
-            </a>
-        </div>
-
      </nav>
     </div>
+
+    <div class="pix-header-border bg-gray-2" style="width:100%;height:1px;"></div>
+</header>
+
+<!-- NAVBAR MÓVIL NUEVO -->
+<nav class="navbar navbar-mobile-custom d-lg-none">
+    <div class="mobile-left">
+        <a class="navbar-brand" href="index.html">
+            <img class="pix-logo" src="https://i.postimg.cc/k41WLbz2/Diseño_sin_título.png" alt="CS">
+        </a>
+    </div>
+
+    <div class="mobile-center">
+        <a href="https://wa.me/542954683912" target="_blank" class="mobile-icon">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/cslapampa" target="_blank" class="mobile-icon">
+            <i class="bi bi-instagram"></i>
+        </a>
+    </div>
+
+    <div class="mobile-right">
+        <button class="navbar-toggler hamburger--spin hamburger small-menu-toggle" 
+                type="button" id="openMobileMenu">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </div>
+</nav>
+
+<div class="pix-header-border bg-gray-2 d-lg-none" style="width:100%;height:1px;"></div>
+
+<!-- PANEL LATERAL MÓVIL -->
+<div id="mobileMenuPanel" class="mobile-menu-panel">
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link font-weight-bold" href="#pix_section_intro">Home</a></li>
+        <li class="nav-item"><a class="nav-link font-weight-bold" href="#pix_section_empresa">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link font-weight-bold" href="#pix_section_servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link font-weight-bold" href="#pix_section_productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link font-weight-bold" href="#pix_section_contacto">Contacto</a></li>
+    </ul>
 </div>
 
 <style>
-/* PANEL LATERAL */
+/* MENÚ LATERAL */
 .mobile-menu-panel {
     position: fixed;
     top: 0;
@@ -271,133 +295,59 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
     box-shadow: -2px 0 10px rgba(0,0,0,0.15);
     padding: 40px 25px;
     transition: right 0.35s ease;
-    z-index: 99999;
+    z-index: 999999;
 }
-
-/* PANEL ABIERTO */
 .mobile-menu-panel.open {
     right: 0;
 }
 
-/* Enlaces del menú */
-.mobile-menu-panel .nav-link {
-    font-size: 18px;
-    padding: 12px 0;
-    display: block;
-}
-
-/* Overlay oscuro detrás del menú */
+/* Overlay */
 .menu-overlay {
     position: fixed;
     top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0,0,0,0.45);
     display: none;
-    z-index: 99998;
+    z-index: 999998;
 }
-
 .menu-overlay.active {
     display: block;
 }
+
+/* Ícono hamburguesa sin cambiar a X */
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after {
+    background-color: black;
+}
 </style>
 
-<div class="menu-overlay" id="menuOverlay"></div>
-
-<div class="pix-header-border bg-gray-2" style="width:100%;height:1px;"></div>
-
-<!-- TOPBAR MÓVIL -->
-<div class="pix-topbar pix-header-mobile pix-topbar-normal bg-white p-sticky py-22">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-between">
-
-                <!-- REDES -->
-                <div class="pix-px-5 d-inline-flex align-items-center pix-social text-18">
-                    <a class="d-flex align-items-center text-black px-2" target="_blank" href="https://www.instagram.com/cslapampa">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                    <a class="d-flex align-items-center text-black px-2" target="_blank" href="https://wa.me/542954683912">
-                        <i class="bi bi-whatsapp"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="pix-mobile-header-sticky w-100"></div>
-
-<header id="mobile_head" class="pix-header pix-header-mobile sticky-top bg-white">
-    <div class="container">
-        <nav class="navbar navbar-hover-drop navbar-expand-lg2 navbar-light">
-
-            <!-- LOGO -->
-            <a class="navbar-brand" href="index.html">
-                <img class="pix-logo" height="90" src="https://i.postimg.cc/k41WLbz2/Diseño_sin_título.png" alt="CS" style="height:90px;width:auto;">
-            </a>
-
-            <!-- BOTÓN HAMBURGUESA SIN COLLAPSE -->
-            <button class="navbar-toggler hamburger--spin hamburger small-menu-toggle" 
-                    type="button" id="openMobileMenu">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner bg-heading-default">
-                        <span class="hamburger-inner-before bg-heading-default"></span>
-                        <span class="hamburger-inner-after bg-heading-default"></span>
-                    </span>
-                </span>
-            </button>
-
-        </nav>
-    </div>
-
-    <div class="pix-header-border bg-gray-2" style="width:100%;height:1px;"></div>
-</header>
-
-<!-- PANEL LATERAL NUEVO -->
-<div id="mobileMenuPanel" class="mobile-menu-panel">
-
-    <ul class="navbar-nav">
-
-        <li class="nav-item">
-            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_intro">Home</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_empresa">Nosotros</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_servicios">Servicios</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_productos">Productos</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-heading-default font-weight-bold" href="#pix_section_contacto">Contacto</a>
-        </li>
-    </ul>
-</div>
 <script>
-// ABRIR PANEL
-document.getElementById("openMobileMenu").onclick = function () {
-    document.getElementById("mobileMenuPanel").classList.add("open");
-    document.getElementById("menuOverlay").classList.add("active");
+const btn = document.getElementById("openMobileMenu");
+const panel = document.getElementById("mobileMenuPanel");
+const overlay = document.getElementById("menuOverlay");
+
+// ABRIR / CERRAR MENÚ
+btn.onclick = function () {
+    const open = panel.classList.toggle("open");
+    overlay.classList.toggle("active", open);
+    btn.classList.toggle("is-active", open);
 };
 
 // CERRAR AL TOCAR OVERLAY
-document.getElementById("menuOverlay").onclick = function () {
-    document.getElementById("mobileMenuPanel").classList.remove("open");
-    document.getElementById("menuOverlay").classList.remove("active");
+overlay.onclick = function () {
+    panel.classList.remove("open");
+    overlay.classList.remove("active");
+    btn.classList.remove("is-active");
 };
 
 // CERRAR AL TOCAR UNA OPCIÓN
 document.querySelectorAll("#mobileMenuPanel .nav-link").forEach(link => {
     link.onclick = () => {
-        document.getElementById("mobileMenuPanel").classList.remove("open");
-        document.getElementById("menuOverlay").classList.remove("active");
+        panel.classList.remove("open");
+        overlay.classList.remove("active");
+        btn.classList.remove("is-active");
     };
 });
 </script>
@@ -511,7 +461,7 @@ document.querySelectorAll("#mobileMenuPanel .nav-link").forEach(link => {
                             <div class="card w-100 h-100 bg-gradient-primary pix-pt-60 pix-hover-item rounded-xl position-relative overflow-hidden2 text-white tilt fancy_card">
 
                                 <img decoding="async" 
-                                     src="https://www.agrouplp.com.ar/wp-content/plugins/pixfort-core/functions/images/loading.webp"
+                                     src="https://i.postimg.cc/hPngFGHb/Diseño_sin_título_(1).png"
                                      data-srcset="https://i.postimg.cc/hPngFGHb/Diseño_sin_título_(1).png 600w"
                                      data-src="https://i.postimg.cc/hPngFGHb/Diseño_sin_título_(1).png"
                                      class="pix-lazy card-img pix-bg-image rounded-xl h-100 pix-opacity-2 pix-hover-opacity-6"
