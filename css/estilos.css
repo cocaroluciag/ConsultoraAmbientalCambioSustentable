@@ -776,3 +776,29 @@ header, nav, .navbar, .navbar-container {
         height: 280px;
     }
 }
+
+.icono-wsp {
+    width: 40px;      /* Ajustá el tamaño */
+    height: 28px;
+    object-fit: contain;
+}
+
+/* BOTÓN WHATSAPP FLOTANTE */
+.back_to_top.default {
+    width: 60px !important;
+    height: 60px !important;
+    background: #29a71a !important; /* verde WhatsApp */
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+}
+
+.back_to_top.default img.icono-wsp {
+    width: 70% !important;
+    height: 70% !important;
+    object-fit: contain !important;
+}
+
