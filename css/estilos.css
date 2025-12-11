@@ -388,7 +388,6 @@ footer .elementor-container {
 }
 
 
-
 /* ================================
    HEADER & NAV — MÓVIL
 ================================ */
@@ -653,5 +652,127 @@ header, nav, .navbar, .navbar-container {
     .elementor-element-57c5cc36 svg {
         width: 28px !important;
         height: 28px !important;
+    }
+}
+
+/* ============================
+   SECCIÓN COMPLETA
+   ============================ */
+.seccion-logo-galeria {
+    background: linear-gradient(135deg, #2e7d32, #89ba16);
+    padding: 50px 20px;
+    color: white;
+}
+
+.titulo-sustentable {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #ffffff !important;
+}
+
+/* GRID en PC */
+.contenedor-logo-galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+/* ============================
+   LOGO ANIMADO
+   ============================ */
+.logo-movimiento-container {
+    background: rgba(255,255,255,0.15);
+    padding: 20px 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    animation: flotar 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-movimiento-img {
+    width: 280px;
+    animation: zoomInOut 2.2s infinite alternate ease-in-out;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes zoomInOut {
+    from { transform: scale(1); }
+    to   { transform: scale(1.12); }
+}
+
+/* ============================
+   CARRUSELES VERTICALES
+   ============================ */
+.galeria-columna {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.carrusel-vertical {
+    height: 350px;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.carrusel-track {
+    animation: scrollVertical 55s linear infinite; /* antes 18s */
+}
+
+.carrusel-delay .carrusel-track {
+    animation-delay: -27s; /* mitad del tiempo total */
+}
+
+
+.carrusel-track img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+@keyframes scrollVertical {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 768px) {
+    .contenedor-logo-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-columna {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .titulo-sustentable {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .logo-movimiento-img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .galeria-columna {
+        grid-template-columns: 1fr;
+    }
+
+    .carrusel-vertical {
+        height: 280px;
     }
 }
