@@ -8,6 +8,35 @@
     padding-bottom: 120px;
 }
 
+#popupBienvenida{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.85);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999999;
+}
+
+#popupBienvenida img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+}
+
+#cerrarPopup{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    font-size:24px;
+    cursor:pointer;
+}
+
 #pix_section_intro::before {
     content: "";
     position: absolute;

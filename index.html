@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="es">
-
 <head>
 	<!-- Meta Pixel Code -->
 <script>
@@ -181,9 +180,27 @@ var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":
 				}
 			</style>
 			</head>
+            <script>
+document.addEventListener("DOMContentLoaded", function() {
 
+    const btnCerrar = document.getElementById("cerrarPopup");
+
+    if (btnCerrar) {
+        btnCerrar.addEventListener("click", function() {
+            document.getElementById("popupBienvenida").style.display = "none";
+        });
+    }
+
+});
+</script>
 <body class="home wp-singular page-template-default page page-id-3431 wp-theme-agroup theme-agroup woocommerce-no-js woocommerce-active elementor-default elementor-kit-4 elementor-page elementor-page-3431" style="">
-		<div class="pix-page-loading-bg"></div>
+    <!-- POPUP DE BIENVENIDA -->
+<div id="popupBienvenida">
+    <button id="cerrarPopup">✕</button>
+
+    <img src="assets/publi2termo.png" alt="Bienvenida">
+</div>
+    <div class="pix-page-loading-bg"></div>
 			<div class="pix-loading-circ-path"></div>
 		<div id="page" class="site bg-white3">
 		 <div class="pix-topbar position-relative pix-header-desktop pix-topbar-normal  bg-gray-8  text-white sticky-top2 p-sticky" style="z-index:999998;" >
@@ -647,6 +664,7 @@ document.querySelectorAll("#mobileMenuPanel .nav-link").forEach(link => {
                                 <li>Acompañamiento en procesos de certificación.</li>
                                 <li>Formulación de Proyectos y aplicación a Líneas de Créditos Verdes.</li>
                                 <li>Relevamiento Ambiental Aéreo con Drone.</li>
+                                <li>Análisis Termográfico Terrestre y Aéreo con Drone</li>
                             </ul>
                         </div>
                     </div>
